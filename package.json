@@ -1,0 +1,43 @@
+{
+  "name": "sdkcraft-core",
+  "version": "1.0.0",
+  "description": "Generate production-ready SDKs from OpenAPI specs in TypeScript, Python, Dart, Go, and Java",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "sdkcraft": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "openapi",
+    "sdk",
+    "generator",
+    "typescript",
+    "python",
+    "dart",
+    "go",
+    "java",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ihsanelashhab-web/sdkcraft-core.git"
+  },
+  "author": "Ihsan Elashhab",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.19.41",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1"
+  }
+}
