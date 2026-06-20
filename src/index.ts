@@ -10,3 +10,4 @@ export { generateDartSDK } from "./generators/dart-generator";
 export { generateGoSDK } from "./generators/go-generator";
 export { generateJavaSDK } from "./generators/java-generator";
 export { generateKotlinSDK } from "./generators/kotlin-generator";
+export { generateSwiftSDK } from "./generators/swift-generator";
