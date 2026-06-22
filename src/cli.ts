@@ -7,6 +7,8 @@ import { generateDartSDK } from "./generators/dart-generator";
 import { generateGoSDK } from "./generators/go-generator";
 import { generateJavaSDK } from "./generators/java-generator";
 import { generateKotlinSDK } from "./generators/kotlin-generator";
+import { generateSwiftSDK } from "./generators/swift-generator";   // <-- أضف هذا
+import { generateCSharpSDK } from "./generators/csharp-generator"; // <-- أضف هذا
 
 const args = process.argv.slice(2);
 
@@ -19,12 +21,13 @@ const input  = getArg("--input");
 const lang   = getArg("--lang");
 const output = getArg("--output");
 
-const validLangs = ["typescript", "python", "dart", "go", "java", "kotlin", "all"];
+// أضف csharp و swift مصفوفة اللغات المدعومة هنا
+const validLangs = ["typescript", "python", "dart", "go", "java", "kotlin", "swift", "csharp", "all"];
 
 if (!input || !lang || !output) {
   console.error("❌ Missing required arguments.\n");
   console.log("Usage: sdkcraft --input <file> --lang <language> --output <dir>");
-  console.log("Languages: typescript | python | dart | go | java | kotlin | all");
+  console.log("Languages: typescript | python | dart | go | java | kotlin | swift | csharp | all"); // <-- حدّث السطر هنا
   process.exit(1);
 }
 
@@ -57,6 +60,8 @@ function main() {
     if (lang === "go"         || lang === "all") generateGoSDK(spec, output + "/go");
     if (lang === "java"       || lang === "all") generateJavaSDK(spec, output + "/java");
     if (lang === "kotlin"     || lang === "all") generateKotlinSDK(spec, output + "/kotlin");
+    if (lang === "swift"      || lang === "all") generateSwiftSDK(spec, output + "/swift");   // <-- أضف هذا
+    if (lang === "csharp"     || lang === "all") generateCSharpSDK(spec, output + "/csharp"); // <-- أضف هذا
 
     console.log(`\n✨ Done! SDK generated in: ${output}`);
   } catch (error: any) {
