@@ -7,6 +7,7 @@ import { generateModels } from "./typescript/generators/models";
 import { generateRequestFn } from "./typescript/generators/request";
 import { generatePaginateFn } from "./typescript/generators/paginate";
 import { generateEndpoints } from "./typescript/generators/endpoints";
+import { generateZodSchemas } from "./typescript/generators/zod-schemas";
 
 /**
  * يولّد SDK كامل بلغة TypeScript من ApiSpec، ويكتبه في outputDir/index.ts.
@@ -19,6 +20,7 @@ export function generateTypeScriptSDK(spec: ApiSpec, outputDir: string): void {
 
   const lines: string[] = [
     ...generateHeader(spec),
+    ...generateZodSchemas(spec.models),
     ...generateModels(spec.models),
     ...generateRequestFn(),
     ...generatePaginateFn(),
